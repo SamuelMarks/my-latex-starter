@@ -1,0 +1,139 @@
+\input{preamble}
+
+%% Titles
+\def \thesisAuthor{Samuel I Marks}
+
+\title{Multi-ML cross-platform\\meta-programming at scale\\using compiler tech and C}
+
+\author{\thesisAuthor}
+
+\faculty{Faculty of Engineering} \department{Computer Science and Eng} \copyrightnotice{All rights reserved} \isbnprinted{} \isbnelectronic{} \serialnumber{0000-0000} \setyear{2025} \setmonth{September}
+
+%\usepackage[acronym,xindy,toc,nomain]{glossaries-extra}
+\usepackage[nomain,abbreviations,acronym,postdot]{glossaries-extra}
+
+\makeglossaries
+
+\setabbreviationstyle[acronym]{long-short}
+
+\newacronym{API}{API}{Application Programming Interface}
+
+% Chapter 1
+\newacronym{CDD}{CDD}{Compiler Driven Development}
+
+\begin{document}
+
+\frontmatter
+
+\maketitle
+
+\mainmatter
+
+\cleardoublepage
+
+\bibliographystyle{IEEEtranN}
+\renewcommand{\bibname}{References}
+
+%% Chapters
+\setcounter{page}{1}
+\pagenumbering{roman}
+
+\fancyhf{} \fancyhf[HLE,HRO]{\thepage} \fancyhf[HRE,HLO]{\nouppercase{\leftmark}}
+
+\makeatletter\@openrightfalse
+
+\tableofcontents
+
+%\chapter*{Dedication}
+%To date 
+
+\chapter*{Statement of originality}
+This is to certify that, to the best of my knowledge, the content of this thesis is wholly my own work, except as referenced or acknowledged in the text. This thesis has not been submitted for the award of a degree at this or any other institution.
+
+Samuel I Marks
+
+%\input{Contents/0A_Preface}
+
+%\input{Contents/0B_Acknowledgements}
+
+%\cleardoublepage
+%\input{Contents/0C_Presentations}
+
+%\chapter*{Introduction} \markboth{\MakeUppercase{Introduction}}{} \phantomsection
+%\include{Contents/0D_Introduction}
+
+%% TOC
+\listoftables
+
+\listoffigures
+
+\cleardoublepage
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\include{Contents/01_ChapterTitle}
+
+\renewcommand{\theHchapter}{A\arabic{chapter}}
+\renewcommand{\theHsection}{A\arabic{section}}
+
+%\appendix
+% include appendix here
+
+%\bibliographystyle{IEEEtranN}
+\renewcommand{\bibname}{Bibliography}
+
+\markboth{\MakeUppercase{Bibliography}}{} \phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\bibliography{Thesis}
+
+%\section{printacronyms}
+%\printacronyms
+%\section{printglossary}
+\printglossary
+%\section{printglossaries}
+%\printglossaries
+%\section{printabbreviations}
+%\printglossary[type=\glsxtrabbrvtype]
+
+% smart diagram:
+
+% \enlargethispage{3\baselineskip}
+% \thispagestyle{empty}
+% \pagecolor[HTML]{0E0407}
+
+% \begin{center}
+
+% \smartdiagramset{
+%     distance planet-satellite=5.5cm,
+%     planet color=orange!60,
+%     planet text width=3cm,
+%     planet font=\large,
+%     planet size=5cm,
+%     %satellite font=\scriptsize,
+%     satellite text width=2.7cm,
+%     satellite text opacity=1,
+%     satellite fill opacity=1,
+%     bubble text opacity=1,
+%     bubble fill opacity=1
+%     %satellite color=blue!60
+%     %set color list={blue!50!cyan,green!60!lime,orange!50!red}
+% }
+% \smartdiagram[connected constellation diagram]{Preparations for population screening, Risk calculator, Glaucoma \GLS{AI}, \GLS{DR} \GLS{AI}, Smartphone\\ophthalmoscope, eLearning \GLS{MOOC}}
+% \end{center}
+
+% ^ smart diagram
+
+%\subfile{book_cover}
+
+%\begin{bookcover}
+%    \bookcovercomponent{color}{bg whole}{blue}
+%    \bookcovercomponent{normal}{front}{
+%    \vspace{5cm}
+%    \begin{center}
+%    \bfseries\huge Book title
+%    \end{center}}
+%\end{bookcover}
+
+\end{document}
