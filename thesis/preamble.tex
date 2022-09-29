@@ -1,0 +1,376 @@
+% arara: pdflatex: {synctex: yes, action: nonstopmode}
+% arara: pdflatex
+% arara: bibtex
+% arara: pdflatex
+% arara: pdflatex
+% arara: nomencl
+% arara: pdflatex: {synctex: yes, action: nonstopmode}
+
+%\documentclass[a4crop]{ntnuthesis}
+\documentclass{simthesis}
+\usepackage[utf8]{inputenc}
+\usepackage{subfiles}
+\usepackage{amsmath} %equations and spacings
+\usepackage[final]{pdfpages}
+\usepackage{lipsum} % access to random text
+%graphics
+\usepackage{graphicx}
+%\usepackage[demo]{graphicx}
+%caption styles
+\usepackage[small,bf]{caption}
+\usepackage{caption}
+\usepackage[labelformat=simple]{subcaption}
+\renewcommand\thesubfigure{(\alph{subfigure})} % see subcaption doc
+% the following format will be used to emulate the captions produced by fltpage
+\DeclareCaptionLabelFormat{adja-page}{\hrulefill\\#1 #2 \emph{(previous page)}}
+
+%<<byman
+%\usepackage{xcolor}
+\usepackage{color}
+\usepackage{sidecap}
+\definecolor{cffffff}{RGB}{255,255,255}
+\definecolor{c2f528f}{RGB}{47,82,143}
+\definecolor{c4472c4}{RGB}{68,114,196}
+
+\def \globalscale {1.000000}
+
+%byman>>
+
+%<<byman
+%% We want UK-english hyphenation patterns.byman
+\usepackage[british]{babel}
+%byman>>
+
+%Remove Paragraph indenting
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{0.1in}
+
+%<<byman
+%% Use scalable, PostScript Type 1 versions of the Computer Modern fonts.
+\usepackage{type1cm}
+%% Replace the standard Computer Modern Typewriter font LaTeX uses
+%% for monospace text with the PostScript font Adobe Courier.
+\usepackage{courier}
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+\usepackage{times}
+%% Redefine the font used for the section headings to
+%% Helvetica-Narrow Bold.
+\usepackage{sectsty}
+\allsectionsfont{\usefont{OT1}{phv}{bc}{n}\selectfont}
+% for colour shades in tables
+\usepackage{colortbl}
+%to control the title formatting and spaces around the titles
+\usepackage{pdfpages}
+%%byman>>
+
+%spaces under sections
+\usepackage[compact]{titlesec}
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
+%fonts
+%\usepackage[T1]{fontenc} %gives light font
+%\usepackage[light,math]{iwona}
+
+%Abbreviations or Acronyms
+%\usepackage[intoc]{nomencl}
+\usepackage{nomencl}
+\renewcommand{\nomname}{List of Abbreviations}
+\makenomenclature
+
+\hyphenation{significant}
+\hyphenation{Optometry}
+\hyphenation{diagnoses}
+
+%\def\hyphenpenalty\10000
+%\def\exhyphenpenalty\10000
+
+\usepackage[a-1b]{pdfx}
+
+%Bibliography
+%\usepackage{url}
+%\usepackage{natbib}
+%\usepackage[]{natbib}
+
+\usepackage[sectionbib,square,sort,comma,numbers]{natbib}
+\usepackage{chapterbib}
+
+%chapter biblio
+%\usepackage[sectionbib]{chapterbib}
+%\bibpunct[:]{(}{)}{;}{a}{}{,} %citation structure
+%\bibpunct{(}{)}{,}{a}{}{;}
+%\bibpunct{[}{]}{,}{a}{}{;}
+%\bibpunct{(}{)}{;}{a}{}{,} % to follow the A&A style
+
+\newcommand{\cmt}[1]{}%inline comment
+
+%tabularx
+\usepackage{tabularx}
+\usepackage{tabulary}
+\usepackage{tabu}
+\usepackage{longtable} %table on several pages
+\usepackage{booktabs}
+
+%\newlength\mylen
+%\setlength\mylen{2\tabcolsep}
+%\addtolength\mylen{\arrayrulewidth}
+
+%\usepackage{seqsplit}
+
+\newcolumntype{s}{>{\hsize=.5\hsize}X}
+% \newcolumntype{a}{\linewidth}{|*{3}{>{\hsize=0.4\hsize}X| >{\hsize=1.6\hsize}X|}}
+\newcolumntype{D}{>{\small\RaggedRight\arraybackslash\hsize=0.4\hsize}X}
+\newcolumntype{E}{>{\small\Centering\arraybackslash\hsize=1.6\hsize}X}
+\setlength{\tabcolsep}{1.5pt}
+
+\newcolumntype{L}[1]{>{\hsize=#1\hsize\raggedright\arraybackslash}X}%
+\newcolumntype{R}[1]{>{\hsize=#1\hsize\raggedleft\arraybackslash}X}%
+\newcolumntype{C}[2]{>{\hsize=#1\hsize\columncolor{#2}\centering\arraybackslash}X}%
+
+
+\usepackage{enumerate}
+
+%enumerate(control spacing)
+\newenvironment{packed_enum}{
+	\begin{enumerate}
+		\vspace*{-1}
+		\setlength{\itemsep}{1pt}
+		      \setlength{\parskip}{0pt}
+		      \setlength{\parsep}{0pt}
+		      }{\end{enumerate}}
+
+%<<byman
+\usepackage{multirow}
+\usepackage{dcolumn}
+\newcolumntype{d}{D{.}{.}{-2}}
+\newcommand{\tabincell}[1]{\begin{tabular}{c}#1\end{tabular}}
+\newcommand{\tabincellt}[1]{\begin{tabular}{l}#1\end{tabular}}
+\newcommand{\merge}[1]{\multicolumn{1}{c}{#1}}
+
+\usepackage{array}
+\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+
+% Used to create tables with rows/cols spanning over se
+%% Use fancy chapter headers, with Jos Dingjan's modifications,
+%% plus my own tweaks. This style is not part of teTeX,
+%% so we are using a local (and renamed) copy.
+%\usepackage[Lenny]{fncychapleo}
+\usepackage{fncychap}
+
+%% Nicely format and linebreak URLs in the bibliography (and elsewhere).
+%\usepackage{url}
+%% Define a new 'leo' style for the package that will use a smaller font.
+\makeatletter
+\def\url@leostyle{%
+	\@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\ttfamily}}}
+\makeatother
+%% Now actually use the newly defined style.
+\urlstyle{leo}
+%byman>>
+
+%graphics
+\usepackage{epstopdf} %support for eps.
+\DeclareGraphicsExtensions{.eps,.ps,.pdf,.png,.jpg}
+\usepackage{float} % figure placing [H]
+
+%% landscape Option
+\usepackage{lscape} %Left down
+%usepackage{pdflscape} %Left up)
+
+%\usepackage[draft]{todonotes}   % notes showed (JJUNJU)
+%% Select what to do with command \comment:
+% \newcommand{\comment}[1]{}  %comment not showed
+\newcommand{\comment}[1]
+{\par {\bfseries \color{red} #1 \par}} %comment showed
+
+%% Section Numbering and TOC depth
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{3}
+
+%dot2tex
+%\usepackage[x11names, rgb]{xcolor}
+\usepackage{etoolbox}
+
+%\usepackage[nomain,acronym,xindy,toc]{glossaries} % nomain, if you define glossaries in a file, and you use \include{INP-00-glossary}
+
+%\makeglossaries
+%\usepackage[style=long,nonumberlist,toc,xindy,acronym,nomain]{glossaries}
+
+%\makeglossaries
+%\usepackage[xindy]{imakeidx}
+%\makeindex
+
+%% Drawing matplotlib plots
+
+\usepackage{pgfplots}
+\DeclareUnicodeCharacter{2212}{−}
+\usepgfplotslibrary{groupplots,dateplot}
+\usetikzlibrary{patterns,shapes.arrows}
+\pgfplotsset{compat=newest}
+
+%% Drawing flow charts
+\usetikzlibrary{er,shapes,arrows,arrows.meta}
+\usetikzlibrary{er,shapes,arrows,arrows.meta}
+
+\tikzstyle{decision} = [diamond, draw, fill=blue!20,
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20,
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+
+
+
+% Define block styles
+\tikzstyle{state}   = [ rounded rectangle,
+						draw,
+						text centered,
+						minimum height = 3em,
+						minimum width = 6em,
+						inner sep = 5pt
+						]
+\tikzstyle{test}    = [ diamond,
+						draw,
+						shape aspect = 2,
+						inner sep = 0pt,
+						text width = 7em,
+						text centered
+						]
+\tikzstyle{action}  = [ rectangle, draw,
+						text width = 8em,
+						inner sep = 5pt,
+						minimum height = 5em
+						]
+\tikzstyle{data}    = [ trapezium,
+						draw,
+						trapezium left angle = 60,
+						trapezium right angle = 120pt,
+						minimum height = 6em,
+						text width = 5em,
+						inner xsep = 0pt
+						]
+\tikzstyle{line}    = [ draw, -triangle 45 ]
+
+\usepackage{zref-savepos}
+\providecommand*{\zsaveposy}{\zsavepos}% support older zref-savepos
+
+\newdimen\flowheight
+
+
+
+%\usepackage{pgf-pie}
+\usetikzlibrary{arrows.meta}
+\tikzset{%
+>={Latex[width=2mm,length=2mm]},
+%% Specifications for style of nodes:
+base/.style = {rectangle, rounded corners, draw=black,
+		minimum width=4cm, minimum height=1cm,
+		text centered, font=\sffamily},
+context/.style = {base, fill=blue!30},
+futureWork/.style = {base, fill=green!30},
+process/.style = {base, minimum width=2.5cm, fill=orange!15, font=\ttfamily},
+}
+
+\usepackage{smartdiagram}
+%\usepackage{pygmentex}
+\usepackage{pythonhighlight}
+%\usepackage{bookcover}
+% \usepackage{svg}
+
+%\usepackage{etoc}
+
+%% To generate list of symbols
+\newcommand{\addsymbol}[3]{%
+	\symboldisplay{#1}{#2}\\%
+	\setelem{#3}{#1}
+}
+\newcommand{\symboldisplay}[2]{%
+	$#1$ \parbox{5in}{\dotfill #2}%
+	%$#1$ \parbox{5in}{ #2}%
+}
+%\def\setelem#1{\expandafter\def\csname myarray(#1)\endcsname}
+\def\setelem#1{\expandafter\gdef\csname myarray(#1)\endcsname}
+\def\dispsymbol#1{\csname myarray(#1)\endcsname}
+
+%% Chapter numbers
+\newcommand{\chap}[2]{
+	\setcounter{chapter}{#1}
+	\setcounter{section}{0}
+	\refstepcounter{chapter}{#1}
+	\chapter*{#2}
+	\addcontentsline{toc}{chapter}{#2}
+}
+
+%% Chapter subtitles: `\Chapter{My chapter}{Nice subtitle}`
+\newcommand\Chapter[2]{\chapter
+	 [#1\hfil\hbox{}\protect\linebreak{\itshape#2}]%
+	 {#1\\[2ex]\Large\itshape#2}%
+}
+\newcommand\ChapterNoNo[2]{\chapter*
+	 [#1\hfil\hbox{}\protect\linebreak{\itshape#2}]%
+	 {#1\\[2ex]\Large\itshape#2}%
+}
+
+
+%Foo bar\acrshort{lvm} can haz\acrshort{ddye} bzr.
+
+%<<byman
+%% Configuration of the header strings for the frontmatter pages.
+% \fancyhead[RO]{{\footnotesize\rightmark}\hspace{2em}\thepage}
+% \setcounter{tocdepth}{2}
+% \fancyhead[LE]{\thepage\hspace{1em}\footnotesize{\leftmark}}
+% \fancyhead[RE,LO]{}
+% \fancyhead[RO]{{\footnotesize\rightmark}\hspace{2em}\thepage}
+%byman>>
+
+%\fancyhf{}
+%\fancyhead[LE,RO]{\thepage}
+%\fancyfoot[RE]{\textit{ \nouppercase{\leftmark}} }
+%\fancyfoot[LO]{\textit{ \nouppercase{\rightmark}} }
+
+\fancyhf{}
+\fancyfoot[C]{}
+
+\iffalse
+	\listoftables
+	\addcontentsline{toc}{chapter}{List of Tables}
+	\cleardoublepage
+
+	\listoffigures
+	\addcontentsline{toc}{chapter}{List of Figures}
+	\cleardoublepage
+
+	%% Abbreviations
+
+	\newpage
+	\printnomenclature
+	\cleardoublepage
+
+	%% Symbols
+	\newpage
+	\chapter*{List of Symbols\hfill}
+	\addtocontents{toc}{\protect\thispagestyle{empty}}
+	\pagenumbering{gobble}
+	\begin{flushleft}
+		%	\input{symbols}
+	\end{flushleft}
+\fi
+
+\robustify\textemdash
+
+\usepackage{hyperref}
+%\hypersetup{colorlinks=true,citecolor=blue}
+%\hypersetup{colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue}
+%\hypersetup{colorlinks=false}
+\hypersetup{colorlinks=true,citecolor=black,linkcolor=black,urlcolor=black}
+
+%% To change box color around the links and citations, you have these other options :
+%\hypersetup{citebordercolor=Violet,filebordercolor=Red,linkbordercolor=Blue}
+%\hypersetup{citebordercolor=Red,filebordercolor=White,linkbordercolor=White}
+
+\usepackage{bookmark}
