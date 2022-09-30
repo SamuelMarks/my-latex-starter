@@ -1,0 +1,120 @@
+% the sample slide is created with 16:9 aspect ratio
+\documentclass[aspectratio=169,xcolor={dvipsnames}]{beamer}
+
+\definecolor{foobarblue}{RGB}{0,153,255}
+\definecolor{foobaryellow}{RGB}{234,187,0}
+
+\usepackage{hyperref}
+\usepackage{pgfgantt}
+\usetikzlibrary{shapes.geometric}
+
+\newcommand{\Csharp}{%
+  {\settoheight{\dimen0}{C}C\kern-.05em \resizebox{!}{\dimen0}{\raisebox{\depth}{\#}}}}
+
+\DeclareUnicodeCharacter{2026}{\textellipsis}
+
+\usepackage[acronym,xindy,toc,nomain]{glossaries-extra} \makeglossaries
+
+\newacronym{OS}{OS}{Operating System}
+\newacronym{ML}{ML}{Machine Learning}
+\newacronym{FFI}{FFI}{Foreign Function Interfaces}
+\newacronym{CDD}{CDD}{Compiler Driven Development}
+\newacronym{PT}{PT}{Personal Trainer}
+\newacronym{SDK}{SDK}{Software Development Kit}
+\newacronym{CLI}{CLI}{Command Line Interface}
+\newacronym{ORM}{ORM}{Object Relational Mapper}
+
+% remove the options if you do not want to have them
+\usetheme[
+	% background=images/background.jpg, % you can add your own background image
+	logo=images/unsw-portrait.png,
+	sidelogo=images/unsw-landscape.png,
+]{unsw}
+% uncomment to show notes. Works very nicely with dspdfviewer. You get something similar to PPT's presenter view.
+%\usepackage{pgfpages}
+%\setbeameroption{show notes on second screen}
+
+% information for the title page
+\author{Samuel Marks, PhD}
+\title{Multi\small{-}\LARGE{}ML cross\small{-}\LARGE{}platform meta programming at scale using compiler tech and C}
+\subtitle{PhD annual review, August 2022}
+\institute{Computer Science and Eng}
+\date{\today}
+
+% - Gantt Chart
+% - Be less concise
+% - Reference NAS
+% - 
+
+\begin{document}
+	% use plain option to remove the page number from the title slide
+	\begin{frame}[plain]
+		\titlepage
+	\end{frame}
+
+	\begin{frame}{Outline}
+		\tableofcontents
+	    % You might wish to add the option [pausesections]
+	\end{frame}
+
+	\begin{frame}{Background}
+		In 1968 the NATO SCIENCE COMMITTEE had a conference\textemdash{}and produced a report\textemdash{}on `software engineering'.\cite{naurSoftwareEngineering1968}. This was a landmark event, spruning the formation of `software engineering' as a discipline; culminating in a general appreciation of a crisis in programming.\cite{macroCraftSoftwareEngineering1987}\\[2.5mm]
+
+		Focussed on in my research is the proceeding\textemdash{}from that NATO conference\textemdash{}on software components \cite{mcilroyMassProducedSoftwareComponents1968}, i.e., mass development of mass customisable software.\\[2.5mm]
+
+		Related foci in my research are: problems of deployment at scale; keeping up-to-date with the massive amount of new \glsentrylong{ML}; and pulling all these together to facilitate \textit{scalable rapid software engineering}.
+	\end{frame}
+
+
+	\begin{frame}{bonâ fides}
+		\textbf{Work (since 2009)}
+		\begin{enumerate}
+			\item[0.] Tech support;
+			\item Software engineer;
+			\item Senior technology specialist;
+			\item Senior software engineer
+			\item Lead software engineer
+			\item Head/director (running my own engineering consultancy)
+		\end{enumerate}		
+
+		\textbf{Education}
+		\begin{enumerate}
+			\item[0.] 2014: Bachelor of Science (wherein I took most all required to get all Computer Science, Information Technology, and Business Information Systems majors) from Macquarie University.
+			\item 2021: Doctor of Philosophy (PhD) from the University of Sydney.
+		\end{enumerate}
+	\end{frame}
+
+	\begin{frame}{Problem (0/1)}
+		My experience, verified by speaking at dozens and attended{\raise.17ex\hbox{$\scriptstyle\sim$}}100 industry technology events, and further confirmed from the literature, exposed major problems in software-engineering. The ones I am focussing on in this PhD are:
+		\begin{itemize}
+			\item Native development benefits from targeting iOS, macOS, Windows, Linux, Android, and Linux.\\
+			\(\hdots\)but this greatly reduces development agility and quality metrics like consistency and test \& doc coverage.
+			\item \glsentrylong{ML} field changes too quickly for anyone to keep up-to-date with. Meaning one cannot claim superiority of their solution across industry/academia.
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Problem (1/1)}
+		\begin{itemize}
+			\item The same stack cannot be deployed for: embedded (e.g., whole stack on smarthpone); peer-to-peer; and client/server architectures.
+			\item Deploying to different clouds requires a different knowledge set.
+		\end{itemize}
+	    
+		In summary, developing quality, complex and multi-tier systems requires:
+		\begin{itemize}
+			\item a team;
+			\item increasingly specialised knowledge;
+			\item lots of time; and
+			\item an expansive budget.
+		\end{itemize}
+	\end{frame}
+
+	\begin{frame}{Solution}
+		Write compilers.
+	\end{frame}
+		
+	\begin{frame}[t, allowframebreaks]
+		\frametitle{References}
+		\bibliographystyle{amsalpha}
+		\bibliography{Thesis}
+	\end{frame}
+\end{document}
