@@ -1,6 +1,8 @@
 % arara: pdflatex
 % arara: makeglossaries
 % arara: bibtex
+% arara: bibtex: { files: [ Contents/01_CDD.tex, Contents/CC_Conclusion.tex, Contents/0D_Introduction.tex, Contents/0B_Acknowledgements.tex, Contents/0A_Preface.tex, Contents/0C_Presentations.tex ] }
+% arara: bibtex
 % arara: pdflatex
 % arara: pdflatex
 % arara: pdflatex
@@ -17,7 +19,7 @@
 \faculty{Faculty of Engineering} \department{Computer Science and Eng} \copyrightnotice{All rights reserved} \isbnprinted{} \isbnelectronic{} \serialnumber{0000-0000} \setyear{2025} \setmonth{September}
 
 %\usepackage[acronym,xindy,toc,nomain]{glossaries-extra}
-\usepackage[nomain,abbreviations,acronym,postdot]{glossaries-extra}
+\usepackage[automake,nomain,abbreviations,acronym,postdot]{glossaries-extra}
 
 \makeglossaries
 
