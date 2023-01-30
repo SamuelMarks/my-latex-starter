@@ -5,6 +5,8 @@ offregister
 
 LaTeX that I use for my: theses; presentations; proposals; project plans; abstracts; conference papers; and journal articles.
 
+NOTE: More recently I've been experimenting with [classicthesis](https://ctan.org/tex-archive/macros/latex/contrib/classicthesis) for a couple of reasons (best practice usage and [HTML output with Lwarp](https://bdtechconcepts.com/LaTeX-HTML-Converter-The-Lwarp-package.html)).
+
 ---
 
 ## License
